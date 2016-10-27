@@ -18,27 +18,25 @@ import {
     Response,
     ResponseOptions
 }                           from '@angular/http';
-import { HttpService }      from 'ot-oauth/src';
+import { OAuthModule }      from 'ot-ng2-oauth';
 import { CrudService }      from './crud.service';
 
-class CrudServiceMock {}
+class HttpServiceMock {}
 
-describe('HttpService', () => {
+describe('CrudService', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [HttpModule],
+            imports: [OAuthModule],
             providers: [
-                HttpService,
-                CrudService,
-                { provide: XHRBackend, useClass: MockBackend },
+                CrudService
             ]
         });
     }));
 
-    it('can instantiate service when inject service',
-          () => {
-      expect(true).toBe(true);
+    it('can instantiate service when inject service', () => {
+        inject([CrudService], (service: CrudService<any>) => {
+            expect(service instanceof CrudService).toBe(true);
+        });
     });
-
 
 });
