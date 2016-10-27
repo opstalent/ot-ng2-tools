@@ -1,1 +1,1 @@
-export * from './src/crud';
+export { CrudModule } from './src/crud.module';

@@ -3,17 +3,13 @@ import {
     ModuleWithProviders
 }                               from '@angular/core';
 import {CommonModule}           from '@angular/common';
+import {OAuthModule}            from 'ot-ng2-oauth';
 import {CrudService}            from './services/crud.service';
 
 @NgModule({
     imports: [
+        OAuthModule,
         CommonModule,
-    ],
-    declarations: [
-
-    ],
-    exports: [
-
     ]
 })
 export class CrudModule {
