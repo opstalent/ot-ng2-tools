@@ -2,7 +2,7 @@ import {
     URLSearchParams, 
     RequestOptionsArgs 
 }                       from '@angular/http';
-import { HttpService }  from 'ot-oauth/src';
+import { HttpService }  from 'ot-ng2-oauth';
 import { Entity }       from '../models/entity';
 import { 
     Observable, 
