@@ -18,7 +18,7 @@ import {
     Response,
     ResponseOptions
 }                           from '@angular/http';
-import { OAuthModule }      from 'ot-ng2-oauth';
+import { OAuthModule, HttpService }      from 'ot-ng2-oauth';
 import { CrudService }      from './crud.service';
 
 class HttpServiceMock {}
@@ -28,7 +28,8 @@ describe('CrudService', () => {
         TestBed.configureTestingModule({
             imports: [OAuthModule],
             providers: [
-                CrudService
+                CrudService,
+                { provide: HttpService, useClass: HttpServiceMock }
             ]
         });
     }));
@@ -38,5 +39,11 @@ describe('CrudService', () => {
             expect(service instanceof CrudService).toBe(true);
         });
     });
+
+    it('can provide the HttpServiceMock as HttpService',
+        inject([HttpService], (backend: HttpServiceMock) => {
+            expect(backend).not.toBeNull('HttpService should be provided');
+        })
+    );
 
 });

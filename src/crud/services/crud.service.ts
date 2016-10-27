@@ -1,3 +1,4 @@
+import { Injectable }   from '@angular/core';
 import { 
     URLSearchParams, 
     RequestOptionsArgs 
@@ -12,6 +13,7 @@ import {
 
 declare var _: any;
 
+@Injectable()
 export class CrudService<T extends Entity> {
     
     protected baseUrl: string;
